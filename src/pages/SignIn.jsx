@@ -23,6 +23,9 @@ const {loading , error} = useSelector((state)=>state.user)
 //4. navigate
 const navigate = useNavigate();
 
+//5.
+const dispatch = useDispatch();
+
 //2. handle after submitting
 
 const handleSubmit = async (e) => {
