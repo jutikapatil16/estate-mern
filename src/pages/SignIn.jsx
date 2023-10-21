@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import {Link , useNavigate} from 'react-router-dom'
+
+import OAuth from '../components/OAuth';
+//redux imports
 import { useDispatch, useSelector } from 'react-redux';
 import { signInStart , signInSuccess ,signInFailure } from '../redux/user/userSlice';
 
@@ -97,6 +100,7 @@ disabled={loading}
          {loading ? "loading..." : "Sign In"} 
          
   </button>
+  <OAuth/>
   </form>
 
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {Link , useNavigate} from 'react-router-dom'
+import OAuth from '../components/OAuth';
 
 export default function SignUp() {
   
@@ -92,6 +93,7 @@ disabled={loading}
          {loading ? "loading..." : "Sign Up"} 
          signup karo na
   </button>
+  <OAuth/>
   </form>
 
 
