@@ -148,7 +148,6 @@ export default function CreateListing() {
         return setError('Discount price must be lower than regular price');
       setLoading(true);
       setError(false);
-      //send this to backend
       const res = await fetch('/api/listing/create', {
         method: 'POST',
         headers: {
@@ -159,7 +158,6 @@ export default function CreateListing() {
           userRef: currentUser._id,
         }),
       });
-      //retrieving from backend the stauts
       const data = await res.json();
       setLoading(false);
       if (data.success === false) {
@@ -169,11 +167,12 @@ export default function CreateListing() {
     } catch (error) {
       setError(error.message);
       setLoading(false);
+      console.log(error);
     }
   };
 
 console.log(formData);
-
+console.log(error);
   return (
     <main className='p-3 max-w-4xl mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>
@@ -381,7 +380,7 @@ console.log(formData);
               </div>
             ))}
           <button
-            disabled={loading || uploading}
+            disabled={loading || uploading} type='submit'
             className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
           >
             {loading ? 'Creating...' : 'Create listing'}
